@@ -73,9 +73,9 @@ class Action(models.Model):
         <a href="http://oebfare.com/">brosner</a> commented on <a href="http://github.com/pinax/pinax">pinax/pinax</a> 2 hours ago
 
     """
-    actor_content_type = models.ForeignKey(ContentType, related_name='actor',
+    actor_content_type = models.ForeignKey(ContentType, related_name='actor', null=True,
                                            db_index=True)
-    actor_object_id = models.CharField(max_length=255, db_index=True)
+    actor_object_id = models.CharField(max_length=255, db_index=True, null=True)
     actor = generic.GenericForeignKey('actor_content_type', 'actor_object_id')
 
     verb = models.CharField(max_length=255, db_index=True)

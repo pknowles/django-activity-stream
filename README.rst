@@ -1,3 +1,8 @@
+A trivial fork of `django-activity-stream <https://github.com/justquick/django-activity-stream>`_
+to allow a ``None`` actor and support anonymous users, addressing
+`this issue <https://github.com/justquick/django-activity-stream/issues/16>`_.
+
+
 Django Activity Stream
 ======================
 

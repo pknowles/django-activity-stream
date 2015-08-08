@@ -96,15 +96,13 @@ def action_handler(verb, **kwargs):
         verb = verb._proxy____args[0]
 
     newaction = get_model('actstream', 'action')(
-        actor_content_type=ContentType.objects.get_for_model(actor),
-        actor_object_id=actor.pk,
         verb=text_type(verb),
         public=bool(kwargs.pop('public', True)),
         description=kwargs.pop('description', None),
         timestamp=kwargs.pop('timestamp', now())
     )
 
-    for opt in ('target', 'action_object'):
+    for opt in ('actor', 'target', 'action_object'):
         obj = kwargs.pop(opt, None)
         if obj is not None:
             check(obj)
